@@ -1,0 +1,64 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio files
+.vscode/
+.vs/
+*.user
+*.suo
+*.log
+*.sln.docstates
+
+# Auto-generated files
+*.designer.cs
+Generated_Code/
+
+# NuGet packages
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Backup & temporary files
+*.bak
+*.swp
+*.temp
+*.tmp
+~$*
+
+# JetBrains Rider files
+.idea/
+*.sln.iml
+
+# Recycle Bin used for backup
+$RECYCLE.BIN/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# User-specific files
+*.rsuser
+*.resharper
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Resharper files
+_ReSharper*/
+*.DotSettings.user
+
+# Local history
+.localhistory/
