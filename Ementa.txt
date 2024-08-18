@@ -12,7 +12,6 @@
 3. Avançando com Eventos
 - Eventos Personalizados - https://learn.microsoft.com/pt-br/dotnet/csharp/programming-guide/events/how-to-implement-custom-event-accessors
 - Eventos de interface - https://learn.microsoft.com/pt-br/dotnet/csharp/programming-guide/events/how-to-implement-interface-events
-- O padrão Observer - https://learn.microsoft.com/pt-br/dotnet/standard/events/observer-design-pattern
 
 4. Aplicações Práticas e Projetos
 - Projetando uma Aplicação com Eventos e Delegates - Windows Forms
