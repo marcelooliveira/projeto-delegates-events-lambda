@@ -1,7 +1,7 @@
 1. Introdução a Delegates
 ATMConsole.csproj - Criando e Usando Delegates - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/how-to-declare-instantiate-and-use-a-delegate
 ATMConsole.csproj - Delegates vs Métodos Anônimos - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/delegates-with-named-vs-anonymous-methods
-- Delegates Multicast - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/how-to-combine-delegates-multicast-delegates
+ATMConsole.csproj - Delegates Multicast - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/how-to-combine-delegates-multicast-delegates
 - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
 
 2. Eventos em C#
@@ -14,8 +14,8 @@ ATMConsole.csproj - Delegates vs Métodos Anônimos - https://learn.microsoft.co
 - Eventos de interface - https://learn.microsoft.com/pt-br/dotnet/csharp/programming-guide/events/how-to-implement-interface-events
 
 4. Aplicações Práticas e Projetos
-- Projetando uma Aplicação com Eventos e Delegates - Windows Forms
-- Amarrando Eventos a Controles
+CaixaEletronico.csproj - Projetando uma Aplicação com Eventos e Delegates - Windows Forms
+CaixaEletronico.csproj - Amarrando Eventos a Controles
 
 5. Introdução às Expressões Lambda
 - https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions
