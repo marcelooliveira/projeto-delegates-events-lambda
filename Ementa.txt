@@ -1,6 +1,6 @@
 1. Introdução a Delegates
-- Criando e Usando Delegates - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/how-to-declare-instantiate-and-use-a-delegate
-- Delegates vs Métodos Anônimos - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/delegates-with-named-vs-anonymous-methods
+ATMConsole.csproj - Criando e Usando Delegates - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/how-to-declare-instantiate-and-use-a-delegate
+ATMConsole.csproj - Delegates vs Métodos Anônimos - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/delegates-with-named-vs-anonymous-methods
 - Delegates Multicast - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/how-to-combine-delegates-multicast-delegates
 - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
 

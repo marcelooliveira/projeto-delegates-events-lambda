@@ -1,6 +1,5 @@
 ﻿public delegate void ConsultaBancaria();
 public delegate void TransacaoBancaria(decimal amount);
-
 public class CaixaEletronico
 {
     private decimal saldo;
