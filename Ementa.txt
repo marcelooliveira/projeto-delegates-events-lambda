@@ -1,25 +1,24 @@
 1. Introdução a Delegates
-ATMConsole.csproj - Criando e Usando Delegates - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/how-to-declare-instantiate-and-use-a-delegate
-ATMConsole.csproj - Delegates vs Métodos Anônimos - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/delegates-with-named-vs-anonymous-methods
-ATMConsole.csproj - Delegates Multicast - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/how-to-combine-delegates-multicast-delegates
+ATMConsole_delegates.csproj - Criando e Usando Delegates - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/how-to-declare-instantiate-and-use-a-delegate
+ATMConsole_delegates.csproj - Delegates vs Métodos Anônimos - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/delegates-with-named-vs-anonymous-methods
+ATMConsole_delegates.csproj - Delegates Multicast - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/how-to-combine-delegates-multicast-delegates
 - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
 
 2. Eventos em C#
 - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
-- Criando e Invocando Eventos - https://learn.microsoft.com/pt-br/dotnet/standard/events/how-to-raise-and-consume-events
-- Manipuladores de Eventos - https://learn.microsoft.com/pt-br/dotnet/standard/events/how-to-handle-multiple-events-using-event-properties
-
-3. Avançando com Eventos
+- ATMConsole_events - Criando e Invocando Eventos - https://learn.microsoft.com/pt-br/dotnet/standard/events/how-to-raise-and-consume-events
+- ATMConsole_events - Eventos de interface - https://learn.microsoft.com/pt-br/dotnet/csharp/programming-guide/events/how-to-implement-interface-events
 - Eventos Personalizados - https://learn.microsoft.com/pt-br/dotnet/csharp/programming-guide/events/how-to-implement-custom-event-accessors
-- Eventos de interface - https://learn.microsoft.com/pt-br/dotnet/csharp/programming-guide/events/how-to-implement-interface-events
 
-4. Aplicações Práticas e Projetos
+3. Aplicações Práticas e Projetos
 CaixaEletronico.csproj - Projetando uma Aplicação com Eventos e Delegates - Windows Forms
 CaixaEletronico.csproj - Amarrando Eventos a Controles
 
-5. Introdução às Expressões Lambda
+4. Introdução às Expressões Lambda
 - https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions
 - Comparando Expressões Lambda com Delegates
 - Lambdas assíncronos - https://learn.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/lambda-expressions#async-lambdas
+
+5. Lambda Avançado
 - Lambdas de expressão e Lambdas de instrução - https://learn.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/lambda-expressions#expression-lambdas
 - Expressões Lambda e LINQ - https://learn.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/lambda-expressions#lambdas-with-the-standard-query-operators
