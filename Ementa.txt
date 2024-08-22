@@ -6,9 +6,9 @@ ATMConsole_delegates.csproj - Delegates Multicast - https://learn.microsoft.com/
 
 2. Eventos em C#
 - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
-- ATMConsole_events - Criando e Invocando Eventos - https://learn.microsoft.com/pt-br/dotnet/standard/events/how-to-raise-and-consume-events
-- ATMConsole_events - Eventos de interface - https://learn.microsoft.com/pt-br/dotnet/csharp/programming-guide/events/how-to-implement-interface-events
-- Eventos Personalizados - https://learn.microsoft.com/pt-br/dotnet/csharp/programming-guide/events/how-to-implement-custom-event-accessors
+ATMConsole_events - Criando e Invocando Eventos - https://learn.microsoft.com/pt-br/dotnet/standard/events/how-to-raise-and-consume-events
+ATMConsole_events - Eventos de interface - https://learn.microsoft.com/pt-br/dotnet/csharp/programming-guide/events/how-to-implement-interface-events
+ATMConsole_events - Eventos Personalizados - https://learn.microsoft.com/pt-br/dotnet/csharp/programming-guide/events/how-to-implement-custom-event-accessors
 
 3. Aplicações Práticas e Projetos
 CaixaEletronico.csproj - Projetando uma Aplicação com Eventos e Delegates - Windows Forms
@@ -17,8 +17,8 @@ CaixaEletronico.csproj - Amarrando Eventos a Controles
 4. Introdução às Expressões Lambda
 - https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions
 - Comparando Expressões Lambda com Delegates
-- Lambdas assíncronos - https://learn.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/lambda-expressions#async-lambdas
+- Lambdas de expressão e Lambdas de instrução - https://learn.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/lambda-expressions#expression-lambdas
 
 5. Lambda Avançado
-- Lambdas de expressão e Lambdas de instrução - https://learn.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/lambda-expressions#expression-lambdas
+- Lambdas assíncronos - https://learn.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/lambda-expressions#async-lambdas
 - Expressões Lambda e LINQ - https://learn.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/lambda-expressions#lambdas-with-the-standard-query-operators
