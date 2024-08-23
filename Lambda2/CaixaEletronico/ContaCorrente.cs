@@ -1,4 +1,6 @@
-﻿namespace CaixaEletronico
+﻿using RestSharp;
+
+namespace CaixaEletronico
 {
     public class ContaCorrente : IContaCorrente
     {
@@ -30,62 +32,13 @@
 
         public decimal ConsultarSaldo()
         {
+            //var client = new RestClient();
+            //var request = new RestRequest("http://localhost:5024/contabancaria", Method.Get);
+            //RestResponse response = await client.ExecuteAsync(request);
+            //saldo = decimal.Parse(response.Content);
+
             return saldo;
         }
-
-        //event DepositoEventHandler IContaCorrente.OnDeposito
-        //{
-        //    add
-        //    {
-        //        lock (objectLock)
-        //        {
-        //            DepositoEvent += value;
-        //        }
-        //    }
-        //    remove
-        //    {
-        //        lock (objectLock)
-        //        {
-        //            DepositoEvent -= value;
-        //        }
-        //    }
-        //}
-
-        //event SaqueEventHandler IContaCorrente.OnSaque
-        //{
-        //    add
-        //    {
-        //        lock (objectLock)
-        //        {
-        //            SaqueEvent += value;
-        //        }
-        //    }
-        //    remove
-        //    {
-        //        lock (objectLock)
-        //        {
-        //            SaqueEvent -= value;
-        //        }
-        //    }
-        //}
-
-        //event SaldoInsuficienteEventHandler IContaCorrente.OnSaldoInsuficiente
-        //{
-        //    add
-        //    {
-        //        lock (objectLock)
-        //        {
-        //            SaldoInsuficienteEvent += value;
-        //        }
-        //    }
-        //    remove
-        //    {
-        //        lock (objectLock)
-        //        {
-        //            SaldoInsuficienteEvent -= value;
-        //        }
-        //    }
-        //}
     }
 
     public class SaldoEventArgs : EventArgs

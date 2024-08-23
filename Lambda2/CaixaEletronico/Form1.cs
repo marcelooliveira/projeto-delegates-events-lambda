@@ -15,34 +15,32 @@ namespace CaixaEletronico
             contaCorrente.SaqueEvent += ContaCorrente_SaqueEvent;
             contaCorrente.SaldoInsuficienteEvent += ContaCorrente_SaldoInsuficienteEvent;
 
-            lblSaldo.Text = contaCorrente.ConsultarSaldo().ToString("C");
+            var saldo = contaCorrente.ConsultarSaldo();
             txtValor.Text = valorAtual;
             //btnSaldo.Click += btnConsultarSaldo_Click;
             btnSaldo.Click += (sender, e) =>
             {
-                MessageBox.Show($"Saldo atual: {Saldo:C}");
+                WriteToConsole($"Saldo atual: {Saldo:C}");
             };
         }
 
         private void ContaCorrente_SaldoInsuficienteEvent(object sender, TransacaoEventArgs e)
         {
-            MessageBox.Show("Saldo insuficiente!");
+            WriteToConsole("Saldo insuficiente!");
         }
 
         private void ContaCorrente_SaqueEvent(object sender, TransacaoEventArgs e)
         {
-            MessageBox.Show($"Saque de {e.ValorTransacao:C} realizado com sucesso!");
+            WriteToConsole($"Saque de {e.ValorTransacao:C} realizado com sucesso!");
             valorAtual = "";
             txtValor.Text = valorAtual;
-            lblSaldo.Text = e.Saldo.ToString("C");
         }
 
         private void ContaCorrente_DepositoEvent(object sender, TransacaoEventArgs e)
         {
-            MessageBox.Show($"Depósito de {e.ValorTransacao:C} realizado com sucesso!");
+            WriteToConsole($"Depósito de {e.ValorTransacao:C} realizado com sucesso!");
             valorAtual = "";
             txtValor.Text = valorAtual;
-            lblSaldo.Text = e.Saldo.ToString("C");
         }
 
         private void btnNumero_Click(object sender, EventArgs e)
@@ -60,7 +58,7 @@ namespace CaixaEletronico
             }
             else
             {
-                MessageBox.Show("Valor inválido!");
+                WriteToConsole("Valor inválido!");
             }
         }
 
@@ -72,13 +70,13 @@ namespace CaixaEletronico
             }
             else
             {
-                MessageBox.Show("Valor inválido!");
+                WriteToConsole("Valor inválido!");
             }
         }
 
         private void btnConsultarSaldo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"Saldo atual: {Saldo:C}");
+            WriteToConsole($"Saldo atual: {Saldo:C}");
         }
 
         private void txtValor_TextChanged(object sender, EventArgs e)
@@ -91,9 +89,16 @@ namespace CaixaEletronico
             get
             {
                 decimal saldo = contaCorrente.ConsultarSaldo();
-                lblSaldo.Text = saldo.ToString("C");
                 return saldo;
             }
+        }
+
+        private void WriteToConsole(string mensagem)
+        {
+            txtConsole.Text += mensagem;
+            txtConsole.Text += "\r\n";
+            txtConsole.SelectionStart = txtConsole.TextLength;
+            txtConsole.ScrollToCaret();
         }
     }
 }
