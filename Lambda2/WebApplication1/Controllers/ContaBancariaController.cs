@@ -14,9 +14,9 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet(Name = "GetContaBancaria")]
-        public ContaBancaria Get()
+        public decimal Get()
         {
-            return new ContaBancaria { Saldo = 1275.00m };
+            return 1275.00m;
         }
     }
 }

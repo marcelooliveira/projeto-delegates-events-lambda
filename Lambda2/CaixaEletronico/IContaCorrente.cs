@@ -4,6 +4,6 @@
     {
         void Depositar(decimal valor);
         void Sacar(decimal valor);
-        decimal ConsultarSaldo();
+        Task<decimal> ConsultarSaldo();
     }
 }

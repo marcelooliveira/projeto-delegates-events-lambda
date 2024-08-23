@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using System.Globalization;
 
 namespace CaixaEletronico
 {
@@ -30,12 +31,12 @@ namespace CaixaEletronico
             DepositoEvent?.Invoke(this, new TransacaoEventArgs(saldo, valor));
         }
 
-        public decimal ConsultarSaldo()
+        public async Task<decimal> ConsultarSaldo()
         {
-            //var client = new RestClient();
-            //var request = new RestRequest("http://localhost:5024/contabancaria", Method.Get);
-            //RestResponse response = await client.ExecuteAsync(request);
-            //saldo = decimal.Parse(response.Content);
+            var client = new RestClient();
+            var request = new RestRequest("http://localhost:5024/contabancaria", Method.Get);
+            RestResponse response = await client.ExecuteAsync(request);
+            saldo = decimal.Parse(response.Content, CultureInfo.InvariantCulture);
 
             return saldo;
         }

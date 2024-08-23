@@ -6,6 +6,7 @@ namespace CaixaEletronico
     {
         private readonly ContaCorrente contaCorrente;
         private string valorAtual = "10";
+        private decimal saldo = 0;
 
         public Form1()
         {
@@ -14,13 +15,14 @@ namespace CaixaEletronico
             contaCorrente.DepositoEvent += ContaCorrente_DepositoEvent;
             contaCorrente.SaqueEvent += ContaCorrente_SaqueEvent;
             contaCorrente.SaldoInsuficienteEvent += ContaCorrente_SaldoInsuficienteEvent;
-
-            var saldo = contaCorrente.ConsultarSaldo();
             txtValor.Text = valorAtual;
+
             //btnSaldo.Click += btnConsultarSaldo_Click;
-            btnSaldo.Click += (sender, e) =>
+            btnSaldo.Click += async (sender, e) =>
             {
-                WriteToConsole($"Saldo atual: {Saldo:C}");
+                btnDepositar.Enabled = btnSacar.Enabled = true;
+                var saldo = await contaCorrente.ConsultarSaldo();
+                WriteToConsole($"Saldo atual: {saldo:C}");
             };
         }
 
@@ -76,21 +78,12 @@ namespace CaixaEletronico
 
         private void btnConsultarSaldo_Click(object sender, EventArgs e)
         {
-            WriteToConsole($"Saldo atual: {Saldo:C}");
+            WriteToConsole($"Saldo atual: {saldo:C}");
         }
 
         private void txtValor_TextChanged(object sender, EventArgs e)
         {
             valorAtual = txtValor.Text;
-        }
-
-        private decimal Saldo
-        {
-            get
-            {
-                decimal saldo = contaCorrente.ConsultarSaldo();
-                return saldo;
-            }
         }
 
         private void WriteToConsole(string mensagem)
