@@ -1,7 +1,8 @@
+using ByteBank.WebApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace WebApplication1.Controllers
+namespace ByteBank.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]

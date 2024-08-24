@@ -1,6 +1,6 @@
 using System.Drawing;
 
-namespace CaixaEletronico
+namespace ByteBank.CaixaEletronico
 {
     public partial class Form1 : Form
     {
@@ -89,7 +89,7 @@ namespace CaixaEletronico
         private void WriteToConsole(string mensagem)
         {
             txtConsole.Text += mensagem;
-            txtConsole.Text += "\r\n";
+            txtConsole.Text += Environment.NewLine;
             txtConsole.SelectionStart = txtConsole.TextLength;
             txtConsole.ScrollToCaret();
         }

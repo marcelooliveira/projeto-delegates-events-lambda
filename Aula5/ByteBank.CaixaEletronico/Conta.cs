@@ -1,10 +1,12 @@
 ﻿using RestSharp;
 using System.Globalization;
 
-namespace CaixaEletronico
+namespace ByteBank.CaixaEletronico
 {
     public class Conta : IConta
     {
+        private const string NumeroAgencia = "007";
+        private const string NumeroConta = "78901-2";
         private decimal saldo = 1000;
         private object objectLock = new Object();
 
@@ -34,31 +36,9 @@ namespace CaixaEletronico
         public async Task<decimal> ConsultarSaldo()
         {
             var client = new RestClient();
-            var request = new RestRequest($"http://localhost:5024/contabancaria/007/78901-2", Method.Get);
+            var request = new RestRequest($"http://localhost:5024/contabancaria/{NumeroAgencia}/{NumeroConta}", Method.Get);
             RestResponse response = await client.ExecuteAsync(request);
-            saldo = decimal.Parse(response.Content, CultureInfo.InvariantCulture);
-
-            return saldo;
-        }
-    }
-
-    public class SaldoEventArgs : EventArgs
-    {
-        public decimal Saldo { get; }
-
-        public SaldoEventArgs(decimal saldo)
-        {
-            Saldo = saldo;
-        }
-    }
-
-    public class TransacaoEventArgs : SaldoEventArgs
-    {
-        public decimal ValorTransacao { get; }
-
-        public TransacaoEventArgs(decimal saldo, decimal valorTransacao) : base(saldo)
-        {
-            ValorTransacao = valorTransacao;
+            return decimal.Parse(response.Content, CultureInfo.InvariantCulture);
         }
     }
 

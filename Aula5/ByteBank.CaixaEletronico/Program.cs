@@ -1,4 +1,4 @@
-namespace CaixaEletronico
+namespace ByteBank.CaixaEletronico
 {
     internal static class Program
     {
