@@ -7,7 +7,6 @@ namespace WebApplication1
         public decimal Saldo { get; set; }
         public DateTime UltimoAcesso { get; set; }
 
-        // Construtor da classe
         public ContaCorrente(string agencia, string conta, decimal saldo, DateTime ultimoAcesso)
         {
             Agencia = agencia;
@@ -16,13 +15,27 @@ namespace WebApplication1
             UltimoAcesso = ultimoAcesso;
         }
 
-        // Método para exibir informações da conta
         public override string ToString()
         {
             return $"Agência: {Agencia}, Conta: {Conta}, Saldo: {Saldo:C}, Último Acesso: {UltimoAcesso}";
         }
+    }
 
-        // Método estático para inicializar a lista de contas
+    public class Transacao
+    {
+        public Transacao(string agencia, string conta, char tipo, decimal valor, DateTime dataRegistro)
+        {
+            Agencia = agencia;
+            Conta = conta;
+            Tipo = tipo;
+            Valor = valor;
+            DataRegistro = dataRegistro;
+        }
 
+        public string Agencia { get; set; }
+        public string Conta { get; set; }
+        public char Tipo { get; set; }
+        public decimal Valor { get; set; }
+        public DateTime DataRegistro{ get; set; }
     }
 }
