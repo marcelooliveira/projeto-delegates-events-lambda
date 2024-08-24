@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace CaixaEletronico
 {
-    public class ContaCorrente : IContaCorrente
+    public class Conta : IConta
     {
         private decimal saldo = 1000;
         private object objectLock = new Object();
@@ -34,7 +34,7 @@ namespace CaixaEletronico
         public async Task<decimal> ConsultarSaldo()
         {
             var client = new RestClient();
-            var request = new RestRequest("http://localhost:5024/contabancaria", Method.Get);
+            var request = new RestRequest($"http://localhost:5024/contabancaria/007/78901-2", Method.Get);
             RestResponse response = await client.ExecuteAsync(request);
             saldo = decimal.Parse(response.Content, CultureInfo.InvariantCulture);
 

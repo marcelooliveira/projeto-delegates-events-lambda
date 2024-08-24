@@ -4,14 +4,14 @@ namespace CaixaEletronico
 {
     public partial class Form1 : Form
     {
-        private readonly ContaCorrente contaCorrente;
+        private readonly Conta contaCorrente;
         private string valorAtual = "10";
         private decimal saldo = 0;
 
         public Form1()
         {
             InitializeComponent();
-            contaCorrente = new ContaCorrente();
+            contaCorrente = new Conta();
             contaCorrente.DepositoEvent += ContaCorrente_DepositoEvent;
             contaCorrente.SaqueEvent += ContaCorrente_SaqueEvent;
             contaCorrente.SaldoInsuficienteEvent += ContaCorrente_SaldoInsuficienteEvent;

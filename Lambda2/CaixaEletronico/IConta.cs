@@ -1,6 +1,6 @@
 ﻿namespace CaixaEletronico
 {
-    public interface IContaCorrente
+    public interface IConta
     {
         void Depositar(decimal valor);
         void Sacar(decimal valor);

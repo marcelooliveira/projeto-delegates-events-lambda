@@ -20,6 +20,6 @@ ATMConsole_lambda - Comparando Expressões Lambda com Delegates
 ATMConsole_lambda - Lambdas de expressão e Lambdas de instrução - https://learn.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/lambda-expressions#expression-lambdas
 
 5. Lambda Avançado
-- Lambdas assíncronos - https://learn.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/lambda-expressions#async-lambdas
-- Expressões Lambda e LINQ - https://learn.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/lambda-expressions#lambdas-with-the-standard-query-operators
+CaixaEletronico_Lambda - Lambdas assíncronos - https://learn.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/lambda-expressions#async-lambdas
+CaixaEletronico_Lambda - Expressões Lambda e LINQ - https://learn.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/lambda-expressions#lambdas-with-the-standard-query-operators
 
