@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-public delegate void ConsultaBancaria();
+﻿public delegate void ConsultaBancaria();
 public delegate void TransacaoBancaria(decimal amount);
 //public delegate void SaldoInsuficienteHandler();
 
@@ -57,43 +55,10 @@ public class CaixaEletronico : ICaixaEletronico
     {
         Console.WriteLine("*** Depositar");
         saldo += valor;
-        //string itemExtrato = $"Valor depositado: {valor:C}. Novo saldo: {saldo:C}";
-
-        //Func<decimal, decimal, string> getItemExtrato = (valor, saldo) =>
-        //{
-        //    return $"Valor depositado: {valor:C}. Novo saldo: {saldo:C}";
-        //};
-
-        //Func<decimal, decimal, string> getItemExtrato = (valor, saldo) 
-        //    => $"Valor depositado: {valor:C}. Novo saldo: {saldo:C}";
-
-        //var getItemExtrato = (decimal valor, decimal saldo)
-        //    => $"Valor depositado: {valor:C}. Novo saldo: {saldo:C}";
-
-        var getItemExtrato = (decimal valor, decimal saldo)
-            => $"Valor depositado: {valor:C}. Novo saldo: {saldo:C}";
-
-        string itemExtrato = getItemExtrato(valor, saldo);
-
-        //transacoes.Add(itemExtrato);
-        //Console.WriteLine(itemExtrato);
-
-        //Action<string> registrarItemExtrato = (itemExtrato) =>
-        //{
-        //    transacoes.Add(itemExtrato);
-        //    Console.WriteLine(itemExtrato);
-        //};
-
-        var registrarItemExtrato = (string itemExtrato) =>
-        {
-            transacoes.Add(itemExtrato);
-            Console.WriteLine(itemExtrato);
-        };
-
-        registrarItemExtrato(itemExtrato);
-
+        string itemExtrato = $"Valor depositado: {valor:C}. Novo saldo: {saldo:C}";
+        transacoes.Add(itemExtrato);
+        Console.WriteLine(itemExtrato);
         Console.WriteLine();
-
     }
 
     public void Sacar(decimal valor)
@@ -130,9 +95,6 @@ public class CaixaEletronico : ICaixaEletronico
     //    SaldoInsuficiente -= InformarSaldoInsuficiente;
     //}
 
-    // Explicit interface implementation required.
-    // Associate IShape's event with
-    // PostDrawEvent
     event SaldoInsuficienteHandler ICaixaEletronico.OnSaldoInsuficiente
     {
         add
