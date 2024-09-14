@@ -1,9 +1,4 @@
-﻿using System;
-using System.Drawing;
-
-public delegate void ConsultaBancaria();
-public delegate void TransacaoBancaria(decimal amount);
-public class CaixaEletronico
+﻿public class CaixaEletronico
 {
     private decimal saldo;
     private List<ItemExtrato> itensExtrato = new();
@@ -23,9 +18,7 @@ public class CaixaEletronico
 
     public void Saldo()
     {
-        Console.WriteLine("*** VerificarSaldo");
-        Console.WriteLine($"Saldo atual: {saldo:C}");
-        Console.WriteLine();
+        ImprimirSaldo();
     }
 
     public void Extrato()
@@ -43,7 +36,6 @@ public class CaixaEletronico
 
     public void Depositar(decimal valor)
     {
-        Console.WriteLine("*** Depositar");
         saldo += valor;
         var item = new ItemExtrato
         {
@@ -56,14 +48,10 @@ public class CaixaEletronico
         ImprimirCabecalho();
         itensExtrato.Add(item);
         ImprimirItemExtrato(item);
-        ImprimirSaldo();
-        Console.WriteLine();
     }
 
     public void Sacar(decimal valor)
     {
-        Console.WriteLine("*** Sacar");
-
         if (valor > saldo)
         {
             Console.WriteLine("Saldo insuficiente.");
@@ -82,9 +70,30 @@ public class CaixaEletronico
             ImprimirCabecalho();
             itensExtrato.Add(item);
             ImprimirItemExtrato(item);
-            ImprimirSaldo();
         }
-        Console.WriteLine();
+    }
+
+    public void AplicarPoupanca(decimal valor)
+    {
+        if (valor > saldo)
+        {
+            Console.WriteLine("Saldo insuficiente.");
+        }
+        else
+        {
+            saldo -= valor;
+            var item = new ItemExtrato
+            {
+                Data = DateTime.Now,
+                Descricao = "Aplicação em Poupança",
+                Valor = valor,
+                Sinal = SinalOperacao.Debito
+            };
+
+            ImprimirCabecalho();
+            itensExtrato.Add(item);
+            ImprimirItemExtrato(item);
+        }
     }
 
     private static void ImprimirItemExtrato(ItemExtrato item)
