@@ -55,7 +55,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBank.CaixaEletronico", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBank.WebApi", "Aula5\antes\ByteBank.WebApi\ByteBank.WebApi.csproj", "{3510A769-2207-4DF4-8D0D-660AA444E813}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBank.CaixaEletronico", "Aula1\antes\ByteBank.CaixaEletronico\ByteBank.CaixaEletronico.csproj", "{B020EBFA-B815-4DE6-9BBC-2E3533DC5484}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBank.Console", "Aula1\antes\ByteBank.Console\ByteBank.Console.csproj", "{B020EBFA-B815-4DE6-9BBC-2E3533DC5484}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
