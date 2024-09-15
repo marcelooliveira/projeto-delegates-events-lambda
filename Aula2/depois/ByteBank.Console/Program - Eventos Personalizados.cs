@@ -3,6 +3,8 @@
     private static void Main(string[] args)
     {
         caixaEletronico.OnSaldoInsuficiente += CaixaEletronico_OnSaldoInsuficiente;
+        //a linha abaixo serve para demonstrar o multicast delegate
+        caixaEletronico.OnSaldoInsuficiente += CaixaEletronico_OnSaldoInsuficienteCentralAtendimento;
         new Logo().MostrarBanner();
 
         while (true)
@@ -30,9 +32,12 @@
     {
         Console.WriteLine($"Saldo insuficiente." +
             $"{Environment.NewLine}" +
-            $"Você tentou sacar R$ {e.Saque:N2}, mas o saldo era R$ {e.Saldo:N2}." +
-            $"{Environment.NewLine}" +
-            $"Contate a central de atendimento do banco ByteBank para solicitar um limite maior no crédito para emergências.");
+            $"Você tentou sacar R$ {e.Saque:N2}, mas o saldo era R$ {e.Saldo:N2}.");
+    }
+
+    private static void CaixaEletronico_OnSaldoInsuficienteCentralAtendimento(object sender, SaldoInsuficienteEventArgs e)
+    {
+        Console.WriteLine($"Contate a central de atendimento do banco ByteBank para solicitar um limite maior no crédito para emergências.");
     }
 
     static void MostrarMenu()
