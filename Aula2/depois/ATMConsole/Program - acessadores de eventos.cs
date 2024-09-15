@@ -21,7 +21,7 @@
 
         // Assinando o evento
         //atm.AssinarSaldoInsuficiente();
-        atm.OnSaldoInsuficiente += Atm_OnSaldoInsuficiente; ;
+        atm.OnSaldoInsuficiente += Atm_OnSaldoInsuficiente;
         transacao(500);
 
         // Cancelando a assinatura do evento

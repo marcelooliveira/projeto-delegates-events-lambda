@@ -29,9 +29,6 @@ public class CaixaEletronico : ICaixaEletronico
     //event EventHandler SaldoInsuficienteEvent;
     event SaldoInsuficienteHandler SaldoInsuficienteEvent;
 
-
-    object objectLock = new Object();
-
     public CaixaEletronico()
     {
         saldo = 0;
@@ -94,6 +91,8 @@ public class CaixaEletronico : ICaixaEletronico
     //{
     //    SaldoInsuficiente -= InformarSaldoInsuficiente;
     //}
+
+    object objectLock = new Object();
 
     event SaldoInsuficienteHandler ICaixaEletronico.OnSaldoInsuficiente
     {

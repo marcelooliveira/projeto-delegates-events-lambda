@@ -3,7 +3,7 @@
     private static void Main(string[] args)
     {
 
-        MostrarBanner();
+        new Logo().MostrarBanner();
 
         while (true)
         {
