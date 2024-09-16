@@ -5,12 +5,25 @@ namespace ByteBank.CaixaEletronico
     public class CaixaEletronico : ICaixaEletronico
     {
         private const int LarguraExtrato = 65;
-        private decimal saldo = 1000;
+        private decimal saldo;
         private List<ItemExtrato> itensExtrato = new();
 
         public event SaldoInsuficienteEventHandler OnSaldoInsuficiente;
         public event DepositoEventHandler OnDeposito;
         public event SaqueEventHandler OnSaque;
+
+        public CaixaEletronico()
+        {
+            saldo = 100;
+            var item = new ItemExtrato
+            {
+                Data = DateTime.Now.AddDays(-2),
+                Descricao = "Saldo Inicial",
+                Valor = saldo,
+                Sinal = SinalOperacao.Credito
+            };
+            itensExtrato.Add(item);
+        }
 
         public decimal Saldo()
         {
@@ -26,7 +39,6 @@ namespace ByteBank.CaixaEletronico
             {
                 ImprimirItemExtrato(stringBuilder, item);
             }
-            //Console.ForegroundColor = ConsoleColor.White;
 
             ImprimirSaldo(stringBuilder);
             return stringBuilder.ToString();

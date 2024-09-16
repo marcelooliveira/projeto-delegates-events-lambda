@@ -1,4 +1,4 @@
-namespace ByteBank.CaixaEletronico
+﻿namespace ByteBank.CaixaEletronico
 {
     public partial class frmCaixaEletronico : Form
     {
@@ -9,10 +9,11 @@ namespace ByteBank.CaixaEletronico
         {
             InitializeComponent();
             caixaEletronico = new CaixaEletronico();
-            caixaEletronico.OnDeposito += ContaCorrente_DepositoEvent;
-            caixaEletronico.OnSaque += ContaCorrente_SaqueEvent;
-            caixaEletronico.OnSaldoInsuficiente += ContaCorrente_SaldoInsuficienteEvent;
+            caixaEletronico.OnDeposito += CaixaEletronico_OnDeposito;
+            caixaEletronico.OnSaque += CaixaEletronico_OnSaque;
+            caixaEletronico.OnSaldoInsuficiente += CaixaEletronico_OnSaldoInsuficiente;
             txtValor.Text = valorAtual;
+            ImprimirLogo();
 
             btnSacar.Click += BtnSacar_Click;
 
@@ -23,12 +24,22 @@ namespace ByteBank.CaixaEletronico
             btnExtrato.Click += BtnExtrato_Click;
         }
 
-        private void ContaCorrente_SaldoInsuficienteEvent(object sender, TransacaoEventArgs e)
+        private void ImprimirLogo()
+        {
+            txtConsole.Text =
+            "▒█▀▀█ █░░█ ▀▀█▀▀ █▀▀ ▒█▀▀█ █▀▀█ █▀▀▄ █░█\r\n" +
+            "▒█▀▀▄ █▄▄█ ░░█░░ █▀▀ ▒█▀▀▄ █▄▄█ █░░█ █▀▄\r\n" +
+            "▒█▄▄█ ▄▄▄█ ░░▀░░ ▀▀▀ ▒█▄▄█ ▀░░▀ ▀░░▀ ▀░▀\r\n";
+            txtConsole.SelectionStart = txtConsole.TextLength;
+            txtConsole.ScrollToCaret();
+        }
+
+        private void CaixaEletronico_OnSaldoInsuficiente(object sender, TransacaoEventArgs e)
         {
             WriteToConsole("Saldo insuficiente!");
         }
 
-        private void ContaCorrente_SaqueEvent(object sender, TransacaoEventArgs e)
+        private void CaixaEletronico_OnSaque(object sender, TransacaoEventArgs e)
         {
             string mensagem = $"Saque de {e.ValorTransacao:C} realizado com sucesso!";
             WriteToConsole(mensagem);
@@ -36,9 +47,9 @@ namespace ByteBank.CaixaEletronico
             valorAtual = txtValor.Text = valorAtual;
         }
 
-        private void ContaCorrente_DepositoEvent(object sender, TransacaoEventArgs e)
+        private void CaixaEletronico_OnDeposito(object sender, TransacaoEventArgs e)
         {
-            string mensagem = $"Dep�sito de {e.ValorTransacao:C} realizado com sucesso!";
+            string mensagem = $"Depósito de {e.ValorTransacao:C} realizado com sucesso!";
             WriteToConsole(mensagem);
             valorAtual = "";
             txtValor.Text = valorAtual;
@@ -59,7 +70,7 @@ namespace ByteBank.CaixaEletronico
             }
             else
             {
-                WriteToConsole("Valor inv�lido!");
+                WriteToConsole("Valor inválido!");
             }
         }
 
@@ -71,7 +82,7 @@ namespace ByteBank.CaixaEletronico
             }
             else
             {
-                WriteToConsole("Valor inv�lido!");
+                WriteToConsole("Valor inválido!");
             }
         }
 
@@ -106,17 +117,17 @@ namespace ByteBank.CaixaEletronico
             valorAtual = txtValor.Text;
         }
 
+        private void btnOperacao_Click(object sender, EventArgs e)
+        {
+            txtValor.Focus();
+        }
+
         private void WriteToConsole(string mensagem)
         {
             txtConsole.Text += mensagem;
             txtConsole.Text += Environment.NewLine;
             txtConsole.SelectionStart = txtConsole.TextLength;
             txtConsole.ScrollToCaret();
-        }
-
-        private void btnOperacao_MouseUp(object sender, EventArgs e)
-        {
-            txtValor.Focus();
         }
     }
 }
