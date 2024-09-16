@@ -16,6 +16,7 @@ public delegate void SaldoInsuficienteEventHandler(object sender, SaldoInsuficie
 
 public class CaixaEletronico : ICaixaEletronico
 {
+    private const int LarguraExtrato = 80;
     private decimal saldo;
     private List<ItemExtrato> itensExtrato = new();
     //public event SaldoInsuficienteHandler SaldoInsuficiente;
@@ -135,17 +136,17 @@ public class CaixaEletronico : ICaixaEletronico
 
     private static void ImprimirCabecalho()
     {
-        Console.WriteLine(new string('=', 80));
+        Console.WriteLine(new string('=', LarguraExtrato));
         Console.WriteLine("{0,-20} {1,-25} {2,18}", "Data/Hora", "Descrição", "Valor (R$)");
-        Console.WriteLine(new string('=', 80));
+        Console.WriteLine(new string('=', LarguraExtrato));
     }
 
     private void ImprimirSaldo()
     {
-        Console.WriteLine(new string('=', 80));
+        Console.WriteLine(new string('=', LarguraExtrato));
         string valor = saldo.ToString("N2").PadLeft(18);
         Console.WriteLine("{0,-20} {1,-25} {2,18}", string.Empty, "Saldo", valor);
-        Console.WriteLine(new string('=', 80));
+        Console.WriteLine(new string('=', LarguraExtrato));
     }
 
     //private void AssinarSaldoInsuficiente()

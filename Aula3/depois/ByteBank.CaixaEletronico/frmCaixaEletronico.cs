@@ -1,24 +1,26 @@
 namespace ByteBank.CaixaEletronico
 {
-    public partial class Form1 : Form
+    public partial class frmCaixaEletronico : Form
     {
-        private readonly Conta contaCorrente;
+        private readonly CaixaEletronico caixaEletronico;
         private string valorAtual = "10";
 
-        public Form1()
+        public frmCaixaEletronico()
         {
             InitializeComponent();
-            contaCorrente = new Conta();
-            contaCorrente.DepositoEvent += ContaCorrente_DepositoEvent;
-            contaCorrente.SaqueEvent += ContaCorrente_SaqueEvent;
-            contaCorrente.SaldoInsuficienteEvent += ContaCorrente_SaldoInsuficienteEvent;
+            caixaEletronico = new CaixaEletronico();
+            caixaEletronico.OnDeposito += ContaCorrente_DepositoEvent;
+            caixaEletronico.OnSaque += ContaCorrente_SaqueEvent;
+            caixaEletronico.OnSaldoInsuficiente += ContaCorrente_SaldoInsuficienteEvent;
             txtValor.Text = valorAtual;
 
-            btnSacar.Click += btnSacar_Click;
+            btnSacar.Click += BtnSacar_Click;
 
-            btnDepositar.Click += btnDepositar_Click;
+            btnDepositar.Click += BtnDepositar_Click;
 
-            btnSaldo.Click += btnConsultarSaldo_Click;
+            btnSaldo.Click += BtnSaldo_Click;
+
+            btnExtrato.Click += BtnExtrato_Click;
         }
 
         private void ContaCorrente_SaldoInsuficienteEvent(object sender, TransacaoEventArgs e)
@@ -42,18 +44,18 @@ namespace ByteBank.CaixaEletronico
             txtValor.Text = valorAtual;
         }
 
-        private void btnNumero_Click(object sender, EventArgs e)
+        private void BtnNumero_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
             valorAtual += btn.Text;
             txtValor.Text = valorAtual;
         }
 
-        private void btnSacar_Click(object sender, EventArgs e)
+        private void BtnSacar_Click(object sender, EventArgs e)
         {
             if (decimal.TryParse(valorAtual, out decimal valorSaque))
             {
-                contaCorrente.Sacar(valorSaque);
+                caixaEletronico.Sacar(valorSaque);
             }
             else
             {
@@ -61,11 +63,11 @@ namespace ByteBank.CaixaEletronico
             }
         }
 
-        private void btnDepositar_Click(object sender, EventArgs e)
+        private void BtnDepositar_Click(object sender, EventArgs e)
         {
             if (decimal.TryParse(valorAtual, out decimal valorDeposito))
             {
-                contaCorrente.Depositar(valorDeposito);
+                caixaEletronico.Depositar(valorDeposito);
             }
             else
             {
@@ -73,10 +75,17 @@ namespace ByteBank.CaixaEletronico
             }
         }
 
-        private void btnConsultarSaldo_Click(object sender, EventArgs e)
+        private void BtnSaldo_Click(object sender, EventArgs e)
         {
-            decimal saldo = contaCorrente.ConsultarSaldo();
+            decimal saldo = caixaEletronico.Saldo();
             WriteToConsole($"Saldo atual: {saldo:C}");
+            btnSacar.Enabled = btnDepositar.Enabled = true;
+        }
+
+        private void BtnExtrato_Click(object? sender, EventArgs e)
+        {
+            string extrato = caixaEletronico.Extrato();
+            WriteToConsole(extrato);
             btnSacar.Enabled = btnDepositar.Enabled = true;
         }
 
