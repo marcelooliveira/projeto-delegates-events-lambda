@@ -47,7 +47,7 @@ namespace ByteBank.CaixaEletronico
         private void BtnNumero_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
-            valorAtual += btn.Text;
+            valorAtual += btn.Name.Last();
             txtValor.Text = valorAtual;
         }
 
@@ -89,6 +89,18 @@ namespace ByteBank.CaixaEletronico
             btnSacar.Enabled = btnDepositar.Enabled = true;
         }
 
+        private void btn_MouseDown(object sender, MouseEventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.Location = new Point(btn.Location.X + 4, btn.Location.Y + 4);
+        }
+
+        private void btn_MouseUp(object sender, MouseEventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.Location = new Point(btn.Location.X - 4, btn.Location.Y - 4);
+        }
+
         private void txtValor_TextChanged(object sender, EventArgs e)
         {
             valorAtual = txtValor.Text;
@@ -100,6 +112,11 @@ namespace ByteBank.CaixaEletronico
             txtConsole.Text += Environment.NewLine;
             txtConsole.SelectionStart = txtConsole.TextLength;
             txtConsole.ScrollToCaret();
+        }
+
+        private void btnOperacao_MouseUp(object sender, EventArgs e)
+        {
+            txtValor.Focus();
         }
     }
 }

@@ -69,29 +69,6 @@ namespace ByteBank.CaixaEletronico
             }
         }
 
-        public void AplicarPoupanca(decimal valor)
-        {
-            //if (valor > saldo)
-            //{
-            //    Console.WriteLine("Saldo insuficiente.");
-            //}
-            //else
-            //{
-            //    saldo -= valor;
-            //    var item = new ItemExtrato
-            //    {
-            //        Data = DateTime.Now,
-            //        Descricao = "Aplicação em Poupança",
-            //        Valor = valor,
-            //        Sinal = SinalOperacao.Debito
-            //    };
-
-            //    ImprimirCabecalho();
-            //    itensExtrato.Add(item);
-            //    ImprimirItemExtrato(item);
-            //}
-        }
-
         private void ImprimirCabecalho(StringBuilder stringBuilder)
         {
             stringBuilder.AppendLine(new string('=', LarguraExtrato));

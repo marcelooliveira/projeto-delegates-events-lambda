@@ -4,7 +4,6 @@
     {
         void Depositar(decimal valor);
         void Sacar(decimal valor);
-        void AplicarPoupanca(decimal valor);
         decimal Saldo();
         string Extrato();
 
