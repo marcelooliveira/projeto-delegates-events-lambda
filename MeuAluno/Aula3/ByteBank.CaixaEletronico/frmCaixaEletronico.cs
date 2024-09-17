@@ -10,6 +10,14 @@ namespace ByteBank.CaixaEletronico
             InitializeComponent();
             caixaEletronico = new CaixaEletronico();
             ImprimirLogo();
+
+            btnSacar.Click += BtnSacar_Click;
+
+            btnDepositar.Click += BtnDepositar_Click;
+
+            btnSaldo.Click += BtnSaldo_Click;
+
+            btnExtrato.Click += BtnExtrato_Click;
         }
 
         private void ImprimirLogo()
@@ -42,6 +50,12 @@ namespace ByteBank.CaixaEletronico
             string mensagem = $"Depósito de {e.ValorTransacao:C} realizado com sucesso!";
             WriteToConsole(mensagem);
             txtValor.Text = string.Empty;
+        }
+
+        private void BtnNumero_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            txtValor.Text += btn.Name.Last();
         }
 
         private void BtnSacar_Click(object sender, EventArgs e)
