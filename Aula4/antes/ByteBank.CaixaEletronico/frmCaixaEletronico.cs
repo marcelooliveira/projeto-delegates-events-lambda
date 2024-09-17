@@ -8,30 +8,30 @@
         {
             InitializeComponent();
             caixaEletronico = new CaixaEletronico();
-            //caixaEletronico.OnDeposito += CaixaEletronico_OnDeposito;
+            caixaEletronico.OnDeposito += CaixaEletronico_OnDeposito;
             //caixaEletronico.OnDeposito += (object sender, TransacaoEventArgs e) =>
-            caixaEletronico.OnDeposito += (sender, e) =>
-            {
-                string mensagem = $"Depósito de {e.ValorTransacao:C} realizado com sucesso!";
-                WriteToConsole(mensagem);
-                txtValor.Text = string.Empty;
-            };
+            //caixaEletronico.OnDeposito += (sender, e) =>
+            //{
+            //    string mensagem = $"Depósito de {e.ValorTransacao:C} realizado com sucesso!";
+            //    WriteToConsole(mensagem);
+            //    txtValor.Text = string.Empty;
+            //};
 
-            //caixaEletronico.OnSaque += CaixaEletronico_OnSaque;
+            caixaEletronico.OnSaque += CaixaEletronico_OnSaque;
             //caixaEletronico.OnSaque += (object sender, TransacaoEventArgs e) =>
-            caixaEletronico.OnSaque += (sender, e) =>
-            {
-                string mensagem = $"Saque de {e.ValorTransacao:C} realizado com sucesso!";
-                WriteToConsole(mensagem);
-                txtValor.Text = string.Empty;
-            };
+            //caixaEletronico.OnSaque += (sender, e) =>
+            //{
+            //    string mensagem = $"Saque de {e.ValorTransacao:C} realizado com sucesso!";
+            //    WriteToConsole(mensagem);
+            //    txtValor.Text = string.Empty;
+            //};
 
-            //caixaEletronico.OnSaldoInsuficiente += CaixaEletronico_OnSaldoInsuficiente;
+            caixaEletronico.OnSaldoInsuficiente += CaixaEletronico_OnSaldoInsuficiente;
             //caixaEletronico.OnSaldoInsuficiente += (object sender, TransacaoEventArgs e) =>
-            caixaEletronico.OnSaldoInsuficiente += (sender, e) =>
-            {
-                WriteToConsole("Saldo insuficiente!");
-            };
+            //caixaEletronico.OnSaldoInsuficiente += (sender, e) =>
+            //{
+            //    WriteToConsole("Saldo insuficiente!");
+            //};
 
             ImprimirLogo();
 
@@ -115,7 +115,8 @@
 
         private void BtnSaldo_Click(object sender, EventArgs e)
         {
-            decimal saldo = caixaEletronico.Saldo;
+            decimal saldo = caixaEletronico.Saldo();
+            //decimal saldo = caixaEletronico.Saldo;
             WriteToConsole($"Saldo atual: {saldo:C}");
         }
 
