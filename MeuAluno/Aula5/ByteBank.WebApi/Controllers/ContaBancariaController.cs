@@ -87,9 +87,14 @@ namespace ByteBank.WebApi.Controllers
         [Route("{agencia}/{conta}")]
         public ActionResult<decimal> Get(string agencia, string conta)
         {
-            var contaCorrente = ContasCorrentes
-                .Where(cc => cc.Agencia == agencia && cc.Conta == conta)
-                .SingleOrDefault();
+            //var contaCorrente = ContasCorrentes
+            //    .Where(cc => cc.Agencia == agencia && cc.Conta == conta)
+            //    .SingleOrDefault();
+
+            var contaCorrente = (from cc in ContasCorrentes
+                                where cc.Agencia == agencia && cc.Conta == conta
+                                select cc)
+                                .SingleOrDefault();
 
             if (contaCorrente == null)
             {
@@ -103,8 +108,13 @@ namespace ByteBank.WebApi.Controllers
         [Route("sacar/{agencia}/{conta}")]
         public ActionResult<string> Sacar(string agencia, string conta, [FromBody] decimal valor)
         {
-            var contaCorrente = ContasCorrentes
-                .FirstOrDefault(cc => cc.Agencia == agencia && cc.Conta == conta);
+            //var contaCorrente = ContasCorrentes
+            //    .FirstOrDefault(cc => cc.Agencia == agencia && cc.Conta == conta);
+
+            var contaCorrente = (from cc in ContasCorrentes
+                                 where cc.Agencia == agencia && cc.Conta == conta
+                                 select cc)
+                                .FirstOrDefault();
 
             if (contaCorrente == null)
             {
@@ -126,8 +136,13 @@ namespace ByteBank.WebApi.Controllers
         [Route("depositar/{agencia}/{conta}")]
         public ActionResult<string> Depositar(string agencia, string conta, [FromBody] decimal valor)
         {
-            var contaCorrente = ContasCorrentes
-                .FirstOrDefault(cc => cc.Agencia == agencia && cc.Conta == conta);
+            //var contaCorrente = ContasCorrentes
+            //    .FirstOrDefault(cc => cc.Agencia == agencia && cc.Conta == conta);
+
+            var contaCorrente = (from cc in ContasCorrentes
+                                 where cc.Agencia == agencia && cc.Conta == conta
+                                 select cc)
+                                .FirstOrDefault();
 
             if (contaCorrente == null)
             {
@@ -144,18 +159,29 @@ namespace ByteBank.WebApi.Controllers
         [Route("extrato/{agencia}/{conta}")]
         public ActionResult<ExtratoBancario> Extrato(string agencia, string conta)
         {
-            var contaCorrente = ContasCorrentes
-                .FirstOrDefault(cc => cc.Agencia == agencia && cc.Conta == conta);
+            //var contaCorrente = ContasCorrentes
+            //    .FirstOrDefault(cc => cc.Agencia == agencia && cc.Conta == conta);
+
+            var contaCorrente = (from cc in ContasCorrentes
+                                 where cc.Agencia == agencia && cc.Conta == conta
+                                 select cc)
+                                .FirstOrDefault();
 
             if (contaCorrente == null)
             {
                 return NotFound("Conta não encontrada.");
             }
 
-            var items = ItemsExtrato
-                .Where(ie => ie.Agencia == agencia && ie.Conta == conta)
-                .OrderBy(ie => ie.Data)
-                .ToList();
+            //var items = ItemsExtrato
+            //    .Where(ie => ie.Agencia == agencia && ie.Conta == conta)
+            //    .OrderBy(ie => ie.Data)
+            //    .ToList();
+
+            var items = (from ie in ItemsExtrato
+                         where ie.Agencia == agencia && ie.Conta == conta
+                         orderby ie.Data
+                         select ie)
+                        .ToList();
 
             var extratoBancario = new ExtratoBancario(items, contaCorrente.Saldo);
 
