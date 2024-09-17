@@ -56,28 +56,37 @@
         }
     }
 
+    public delegate void ConsultaBancaria();
+    public delegate void TransacaoBancaria(decimal amount);
+
     static CaixaEletronico caixaEletronico = new CaixaEletronico();
+    static TransacaoBancaria transacao;
+    static ConsultaBancaria consulta;
 
     private static void Saldo()
     {
-        caixaEletronico.Saldo();
+        consulta = caixaEletronico.Saldo;
+        consulta();
     }
 
     private static void Depositar()
     {
-        caixaEletronico.Depositar(100);
-        caixaEletronico.Depositar(40);
-        caixaEletronico.Depositar(25);
+        transacao = caixaEletronico.Depositar;
+        transacao(100);
+        transacao(40);
+        transacao(25);
     }
 
     private static void Sacar()
     {
-        caixaEletronico.Sacar(50);
-        caixaEletronico.Sacar(20);
+        transacao = caixaEletronico.Sacar;
+        transacao(50);
+        transacao(20);
     }
 
     private static void Extrato()
     {
-        caixaEletronico.Extrato();
+        consulta = caixaEletronico.Extrato;
+        consulta();
     }
 }
