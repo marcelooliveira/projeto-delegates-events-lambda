@@ -29,6 +29,7 @@
         Console.WriteLine("2. Depositar valores");
         Console.WriteLine("3. Sacar valores");
         Console.WriteLine("4. Extrato");
+        Console.WriteLine("5. Depositar e aplicar na poupança");
         Console.WriteLine();
         Console.Write("Digite o número da opção desejada: ");
     }
@@ -48,6 +49,9 @@
                 break;
             case 4:
                 Extrato();
+                break;
+            case 5:
+                DepositarEAplicarPoupanca();
                 break;
 
             default:
@@ -98,5 +102,30 @@
     {
         consulta = caixaEletronico.Extrato;
         consulta();
+    }
+
+    private static void DepositarEAplicarPoupanca()
+    {
+        //transacao = delegate (decimal valor)
+        //{
+        //    caixaEletronico.Depositar(valor);
+        //    caixaEletronico.AplicarPoupanca(valor);
+        //};
+        //transacao(50);
+
+        TransacaoBancaria depositar = caixaEletronico.Depositar;
+        TransacaoBancaria aplicar = caixaEletronico.AplicarPoupanca;
+        TransacaoBancaria saldo = delegate (decimal valor)
+        {
+            caixaEletronico.Saldo();
+        };
+
+        TransacaoBancaria depositarAplicarSaldo = depositar + aplicar + saldo;
+        //depositarAplicarSaldo(50);
+
+        //TransacaoBancaria aplicarSaldo = aplicar + saldo;
+        TransacaoBancaria aplicarSaldo = depositarAplicarSaldo - depositar;
+
+        aplicarSaldo(50);
     }
 }
