@@ -1,24 +1,29 @@
-﻿public delegate void SaldoInsuficienteHandler();
+﻿//public delegate void SaldoInsuficienteHandler();
 
 public class CaixaEletronico : ICaixaEletronico
 {
     private const int LarguraExtrato = 80;
     private decimal saldo;
     private List<ItemExtrato> itensExtrato = new();
-    public event SaldoInsuficienteHandler SaldoInsuficiente;
+    //public event SaldoInsuficienteHandler SaldoInsuficiente;
+
+    //Enfatizar que o EventHandler abaixo é um delegate:
+    //      public delegate void EventHandler(object? sender, EventArgs e);
+
+    public event EventHandler OnSaldoInsuficiente;
 
     public CaixaEletronico()
     {
         saldo = 100;
         var item = new ItemExtrato
-        { 
-            Data = DateTime.Now.AddDays(-2), 
-            Descricao = "Saldo Inicial", 
-            Valor = saldo, 
+        {
+            Data = DateTime.Now.AddDays(-2),
+            Descricao = "Saldo Inicial",
+            Valor = saldo,
             Sinal = SinalOperacao.Credito
         };
         itensExtrato.Add(item);
-        AssinarSaldoInsuficiente();
+        //AssinarSaldoInsuficiente();
     }
 
     public void Saldo()
@@ -62,7 +67,7 @@ public class CaixaEletronico : ICaixaEletronico
         if (valor > saldo)
         {
             //Console.WriteLine("Saldo insuficiente.");
-            SaldoInsuficiente?.Invoke();
+            OnSaldoInsuficiente?.Invoke(this, new EventArgs());
         }
         else
         {
@@ -128,20 +133,20 @@ public class CaixaEletronico : ICaixaEletronico
         Console.WriteLine(new string('=', LarguraExtrato));
     }
 
-    private void AssinarSaldoInsuficiente()
-    {
-        SaldoInsuficiente += MostrarSaldoInsuficiente;
-    }
+    //private void AssinarSaldoInsuficiente()
+    //{
+    //    SaldoInsuficiente += MostrarSaldoInsuficiente;
+    //}
 
-    private void CancelarAssinarSaldoInsuficiente()
-    {
-        SaldoInsuficiente -= MostrarSaldoInsuficiente;
-    }
+    //private void CancelarAssinarSaldoInsuficiente()
+    //{
+    //    SaldoInsuficiente -= MostrarSaldoInsuficiente;
+    //}
 
-    private void MostrarSaldoInsuficiente()
-    {
-        Console.WriteLine($"Saldo insuficiente.{Environment.NewLine}Contate a central de atendimento do banco ByteBank para solicitar um limite maior no crédito para emergências.");
-    }
+    //private void MostrarSaldoInsuficiente()
+    //{
+    //    Console.WriteLine($"Saldo insuficiente.{Environment.NewLine}Contate a central de atendimento do banco ByteBank para solicitar um limite maior no crédito para emergências.");
+    //}
 }
 
 public class ItemExtrato

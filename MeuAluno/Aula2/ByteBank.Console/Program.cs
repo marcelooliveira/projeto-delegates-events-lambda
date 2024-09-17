@@ -2,7 +2,7 @@
 {
     private static void Main(string[] args)
     {
-
+        caixaEletronico.OnSaldoInsuficiente += CaixaEletronico_OnSaldoInsuficiente;
         new Logo().MostrarBanner();
 
         while (true)
@@ -19,6 +19,11 @@
             }
         }
 
+    }
+
+    private static void CaixaEletronico_OnSaldoInsuficiente(object? sender, EventArgs e)
+    {
+        Console.WriteLine($"Saldo insuficiente.{Environment.NewLine}Contate a central de atendimento do banco ByteBank para solicitar um limite maior no crédito para emergências.");
     }
 
     static void MostrarMenu()
