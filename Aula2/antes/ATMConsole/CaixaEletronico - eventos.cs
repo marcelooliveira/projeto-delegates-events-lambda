@@ -76,7 +76,7 @@
 //    }
 //}
 
-//class ItemExtrato
+//public class ItemExtrato
 //{
 //    public DateTime Data { get; set; }
 //    public string Descricao { get; set; }

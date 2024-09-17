@@ -108,7 +108,7 @@ namespace ByteBank.CaixaEletronico
     public delegate void SaldoInsuficienteEventHandler(object sender, TransacaoEventArgs e);
 }
 
-class ItemExtrato
+public class ItemExtrato
 {
     public DateTime Data { get; set; }
     public string Descricao { get; set; }
@@ -125,7 +125,7 @@ class ItemExtrato
     }
 }
 
-enum SinalOperacao
+public enum SinalOperacao
 {
     Credito = 1,
     Debito = -1
