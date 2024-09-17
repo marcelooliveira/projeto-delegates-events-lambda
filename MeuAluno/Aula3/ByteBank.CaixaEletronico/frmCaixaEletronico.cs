@@ -1,5 +1,4 @@
-﻿// Vídeo	3.1-Projeto com Windows Forms
-namespace ByteBank.CaixaEletronico
+﻿namespace ByteBank.CaixaEletronico
 {
     public partial class frmCaixaEletronico : Form
     {
@@ -9,6 +8,9 @@ namespace ByteBank.CaixaEletronico
         {
             InitializeComponent();
             caixaEletronico = new CaixaEletronico();
+            caixaEletronico.OnDeposito += CaixaEletronico_OnDeposito;
+            caixaEletronico.OnSaque += CaixaEletronico_OnSaque;
+            caixaEletronico.OnSaldoInsuficiente += CaixaEletronico_OnSaldoInsuficiente;
             ImprimirLogo();
 
             btnSacar.Click += BtnSacar_Click;
@@ -36,6 +38,11 @@ namespace ByteBank.CaixaEletronico
             {
                 e.Handled = true;
             }
+        }
+
+        private void CaixaEletronico_OnSaldoInsuficiente(object sender, TransacaoEventArgs e)
+        {
+            WriteToConsole("Saldo insuficiente!");
         }
 
         private void CaixaEletronico_OnSaque(object sender, TransacaoEventArgs e)
