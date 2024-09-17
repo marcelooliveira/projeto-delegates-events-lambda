@@ -25,10 +25,14 @@ namespace ByteBank.CaixaEletronico
             itensExtrato.Add(item);
         }
 
-        public decimal Saldo()
-        {
-            return saldo;
-        }
+        //public decimal Saldo()
+        //{
+        //    return saldo;
+        //}
+
+        // lambda de expressão
+        //public decimal Saldo() => saldo;
+        public decimal Saldo => saldo;
 
         public string Extrato()
         {
