@@ -71,7 +71,12 @@
 
     private static void Depositar()
     {
-        transacao = caixaEletronico.Depositar;
+        transacao = delegate (decimal valor)
+        {
+            caixaEletronico.Depositar(valor);
+            caixaEletronico.Saldo();
+        };
+
         transacao(100);
         transacao(40);
         transacao(25);
@@ -79,7 +84,12 @@
 
     private static void Sacar()
     {
-        transacao = caixaEletronico.Sacar;
+        transacao = delegate (decimal valor)
+        {
+            caixaEletronico.Sacar(valor);
+            caixaEletronico.Saldo();
+        };
+
         transacao(50);
         transacao(20);
     }
