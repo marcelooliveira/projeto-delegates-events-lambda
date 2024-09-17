@@ -20,24 +20,7 @@
 //        }
 
 //    }
-//    static void MostrarBanner()
-//    {
-//        var bannerLines = new string[]
-//        {
-//            "▒█▀▀█ █░░█ ▀▀█▀▀ █▀▀ ▒█▀▀█ █▀▀█ █▀▀▄ █░█",
-//            "▒█▀▀▄ █▄▄█ ░░█░░ █▀▀ ▒█▀▀▄ █▄▄█ █░░█ █▀▄",
-//            "▒█▄▄█ ▄▄▄█ ░░▀░░ ▀▀▀ ▒█▄▄█ ▀░░▀ ▀░░▀ ▀░▀"
-//        };
-
-//        Console.ForegroundColor = ConsoleColor.DarkGreen;
-//        Console.WriteLine(bannerLines[0]);
-//        Console.ForegroundColor = ConsoleColor.White;
-//        Console.WriteLine(bannerLines[1]);
-//        Console.ForegroundColor = ConsoleColor.DarkYellow;
-//        Console.WriteLine(bannerLines[2]);
-//        Console.ForegroundColor = ConsoleColor.White;
-//    }
-
+//
 //    static void MostrarMenu()
 //    {
 //        Console.WriteLine("\nEscolha uma opção:");
