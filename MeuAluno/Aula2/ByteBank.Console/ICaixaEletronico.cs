@@ -6,5 +6,5 @@
     void Sacar(decimal valor);
     void AplicarPoupanca(decimal valor);
 
-    event EventHandler OnSaldoInsuficiente;
+    event SaldoInsuficienteEventHandler OnSaldoInsuficiente;
 }

@@ -1,5 +1,19 @@
 ﻿//public delegate void SaldoInsuficienteHandler();
 
+public class SaldoInsuficienteEventArgs : EventArgs
+{
+    public decimal Saldo { get; }
+    public decimal Saque { get; }
+
+    public SaldoInsuficienteEventArgs(decimal saldo, decimal saque)
+    {
+        Saldo = saldo;
+        Saque = saque;
+    }
+}
+
+public delegate void SaldoInsuficienteEventHandler(object sender, SaldoInsuficienteEventArgs e);
+
 public class CaixaEletronico : ICaixaEletronico
 {
     private const int LarguraExtrato = 80;
@@ -10,7 +24,8 @@ public class CaixaEletronico : ICaixaEletronico
     //Enfatizar que o EventHandler abaixo é um delegate:
     //      public delegate void EventHandler(object? sender, EventArgs e);
 
-    public event EventHandler OnSaldoInsuficiente;
+    //public event EventHandler OnSaldoInsuficiente;
+    public event SaldoInsuficienteEventHandler OnSaldoInsuficiente;
 
     public CaixaEletronico()
     {
@@ -67,7 +82,8 @@ public class CaixaEletronico : ICaixaEletronico
         if (valor > saldo)
         {
             //Console.WriteLine("Saldo insuficiente.");
-            OnSaldoInsuficiente?.Invoke(this, new EventArgs());
+            //OnSaldoInsuficiente?.Invoke(this, new EventArgs());
+            OnSaldoInsuficiente?.Invoke(this, new SaldoInsuficienteEventArgs(saldo, valor));
         }
         else
         {
