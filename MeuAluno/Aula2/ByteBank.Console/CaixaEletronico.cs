@@ -1,8 +1,11 @@
-﻿public class CaixaEletronico
+﻿public delegate void SaldoInsuficienteHandler();
+
+public class CaixaEletronico : ICaixaEletronico
 {
     private const int LarguraExtrato = 80;
     private decimal saldo;
     private List<ItemExtrato> itensExtrato = new();
+    public event SaldoInsuficienteHandler SaldoInsuficiente;
 
     public CaixaEletronico()
     {
@@ -15,6 +18,7 @@
             Sinal = SinalOperacao.Credito
         };
         itensExtrato.Add(item);
+        AssinarSaldoInsuficiente();
     }
 
     public void Saldo()
@@ -53,9 +57,12 @@
 
     public void Sacar(decimal valor)
     {
+        //CancelarAssinarSaldoInsuficiente();
+
         if (valor > saldo)
         {
-            Console.WriteLine("Saldo insuficiente.");
+            //Console.WriteLine("Saldo insuficiente.");
+            SaldoInsuficiente?.Invoke();
         }
         else
         {
@@ -119,6 +126,21 @@
         string valor = saldo.ToString("N2").PadLeft(18);
         Console.WriteLine("{0,-20} {1,-25} {2,18}", string.Empty, "Saldo", valor);
         Console.WriteLine(new string('=', LarguraExtrato));
+    }
+
+    private void AssinarSaldoInsuficiente()
+    {
+        SaldoInsuficiente += MostrarSaldoInsuficiente;
+    }
+
+    private void CancelarAssinarSaldoInsuficiente()
+    {
+        SaldoInsuficiente -= MostrarSaldoInsuficiente;
+    }
+
+    private void MostrarSaldoInsuficiente()
+    {
+        Console.WriteLine($"Saldo insuficiente.{Environment.NewLine}Contate a central de atendimento do banco ByteBank para solicitar um limite maior no crédito para emergências.");
     }
 }
 
